@@ -1,98 +1,94 @@
-🌲 Forest Cover Type Classification
+# 🌲 Forest Cover Type Classification
 
 A Machine Learning project to predict forest vegetation type using environmental and terrain features.
 
-📌 Project Overview
+---
 
-This project uses the Forest Cover Type dataset to classify land areas into one of seven forest cover types based on elevation, slope, aspect, soil types, wilderness area, and other environmental attributes.
+## 📌 Project Overview  
+This project uses the **Forest Cover Type dataset** to classify land areas into one of **seven forest cover types** using features such as elevation, slope, aspect, soil types, wilderness area, and hydrology distances.  
+The task is a **multi-class classification problem**.
 
-The task is a multi-class classification problem.
+---
 
-📂 Steps Followed in the Project
-1. Importing the Dataset
+## 📂 Steps Followed in the Project
 
-Loaded the dataset using pandas.
+### **1. Importing the Dataset**
+- Loaded the dataset using pandas.
+- Explored structure, shape, and data types.
+- Checked basic statistics and attribute descriptions.
 
-Checked the shape, columns, and basic statistics.
+---
 
-Verified that all attributes contain valid numerical data.
+### **2. Data Preprocessing**
+- Verified that the dataset contains no missing values.
+- Scaled numerical features where necessary.
+- Prepared one-hot encoded wilderness and soil features.
+- Converted the target variable **Cover_Type** into categorical format (if needed).
 
-2. Data Preprocessing
+---
 
-Handled one-hot encoded columns for soil type and wilderness area.
+### **3. Exploratory Data Analysis (EDA)**
+- Visualized distributions of major features.
+- Used histograms, boxplots, and pairplots for pattern understanding.
+- Checked balance of the **Cover_Type** classes.
 
-Checked for missing values (dataset had none).
+---
 
-Standardized or scaled numerical features where required.
+### **4. Correlation Analysis**
+- Generated a correlation heatmap.
+- Analyzed how major features relate to **Cover_Type**.
+- Identified low-correlation or redundant attributes.
 
-Converted the target variable Cover_Type into categorical form if needed.
+---
 
-3. Exploratory Data Analysis (EDA)
+### **5. Feature Selection & Dropping Unnecessary Columns**
+- Removed features that showed extremely low correlation.
+- Eliminated redundant variables that did not affect learning.
+- Validated that accuracy improved or stayed stable after feature removal.
 
-Visualized distributions of key features.
+---
 
-Plotted histograms and boxplots to understand variability.
+### **6. Train-Test Split**
+- Split the dataset into **train** and **test** sets (typically 80/20).
+- Ensured shuffling for fair and random distribution.
 
-Checked class balance for the target variable.
+---
 
-4. Correlation Analysis
+### **7. Machine Learning Models Used**
+Trained the following models for comparison:
 
-Generated a correlation matrix for all numerical features.
+- **Decision Tree Classifier**
+- **Random Forest Classifier**
+- **Extra Trees Classifier**
+- **Gradient Boosting / Gradient Forest**
+- **Support Vector Machine (SVM)**
 
-Observed how Cover_Type correlates with major environmental features like Elevation, Slope, and Hydrology Distances.
+Each model was evaluated using accuracy metrics on the test set.
 
-Identified features with low or no correlation.
+---
 
-5. Feature Selection & Dropping Unnecessary Attributes
+### **8. Model Performance**
+- Compared all model accuracies.
+- **Extra Trees Classifier achieved the highest accuracy of 87%**, making it the best model for this dataset.
 
-Removed attributes with extremely low correlation to the target.
+---
 
-Dropped columns that were redundant or not useful for prediction.
+## 🎯 Final Result
+The **Extra Trees Classifier** was selected as the final model, offering the best combination of accuracy, speed, and robustness in handling many features.
 
-Verified that dropping features improved or did not hurt accuracy.
+---
 
-6. Splitting the Dataset
+## 🛠️ Tools & Libraries Used
+- **Python**
+- **NumPy**, **Pandas**
+- **Matplotlib**, **Seaborn**
+- **Scikit-learn (sklearn)**
 
-Split the data into train and test sets (e.g., 80/20 split).
+---
 
-Ensured random shuffling for unbiased splitting.
+## 🚀 Conclusion
+The project successfully predicts forest cover types using environmental features.  
+After preprocessing, EDA, feature selection, and model comparison, the **Extra Trees model** delivered the best accuracy of **87%**.  
+This model can be effectively used for forest management, vegetation analysis, and ecological planning.
 
-7. Applying Machine Learning Models
 
-The following models were trained and evaluated:
-
-Decision Tree Classifier
-
-Random Forest Classifier
-
-Extra Trees Classifier
-
-Gradient Boosting / Gradient Forest
-
-Support Vector Machine (SVM)
-
-Each model was trained using the processed dataset and evaluated on the test data.
-
-8. Model Performance
-
-Compared accuracies of all models.
-
-Extra Trees Classifier achieved the highest accuracy of 87%, making it the best-performing model in this project.
-
-🎯 Final Result
-
-The Extra Trees Classifier was selected as the final model due to its high accuracy, speed, and ability to handle many features efficiently.
-
-📌 Tools & Libraries Used
-
-Python
-
-Pandas, NumPy
-
-Matplotlib, Seaborn
-
-Scikit-learn (sklearn)
-
-🚀 Conclusion
-
-This project successfully predicted forest cover types using machine learning. After preprocessing, EDA, feature selection, and model comparison, the Extra Trees model achieved the best performance with 87% accuracy, proving highly effective for this classification task.
